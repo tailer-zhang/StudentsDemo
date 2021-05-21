@@ -3,8 +3,10 @@ import {
   StyleSheet,
   Image
 } from 'react-native';
-import HomeScreen from "./HomeScreen";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import HomeScreen from "./HomeScreen";
+import PersonalCenter from "./PersonalCenter";
+
 const Tab = createBottomTabNavigator();
 
 class Main extends  Component {
@@ -49,14 +51,12 @@ class Main extends  Component {
             fontWeight: '700'
           }
         }}
-
-
       >
         <Tab.Screen name="home" options={{title:'首页'}} component={HomeScreen} />
         <Tab.Screen name="advisory" options={{title:'咨询'}} component={HomeScreen} />
         <Tab.Screen name="treeHole" options={{title:'树洞'}} component={HomeScreen} />
         <Tab.Screen name="find" options={{title:'发现'}}  component={HomeScreen} />
-        <Tab.Screen name="my" options={{title:'我的'}}  component={HomeScreen} />
+        <Tab.Screen name="personalCenter" options={{title:'我的'}}  component={PersonalCenter} />
       </Tab.Navigator>
     )
   }
