@@ -1,50 +1,68 @@
-import React, {Component} from 'react';
+import React, {Component,useState} from 'react';
 import {View, StyleSheet, Text, Image} from 'react-native';
 import { List } from '@ant-design/react-native';
 
 const Item = List.Item;
 const Person = () =>{
-
+  const [personCenterList] = useState([
+      {
+        thumbIcon: require('../../../assets/icon/evaluationIcon.png'),
+        itemLabel: '我的测评'
+      },
+      {
+        thumbIcon: require('../../../assets/icon/myQueryIcon.png'),
+        itemLabel: '我的咨询'
+      },
+      {
+        thumbIcon: require('../../../assets/icon/myCollectIcon.png'),
+        itemLabel: '我的收藏'
+      },
+      {
+        thumbIcon: require('../../../assets/icon/myNewsIcon.png'),
+        itemLabel: '我的消息'
+      }
+    ]);
+  const [otherList] = useState([
+    {
+      thumbIcon: require('../../../assets/icon/setIcon.png'),
+      label: '设置'
+    },
+    {
+      thumbIcon: require('../../../assets/icon/feedBackIcon.png'),
+      label: '帮助反馈'
+    },
+    {
+      thumbIcon: require('../../../assets/icon/aboutUsIcon.png'),
+      label: '关于我们'
+    },
+  ])
   return(
     <View style={styles.personWrapper}>
       <List style={{marginTop: 15}} renderHeader={<Text style={styles.personTitle}>个人中心</Text>}>
-        <Item thumb={<Image style={styles.thumbIcon} source={require('../../../assets/icon/evaluationIcon.png')} />} arrow="horizontal">
-          <View style={styles.labelWrapper}>
-            <Text style={styles.itemLabel}>我的测评</Text>
-          </View>
-        </Item>
-        <Item thumb={<Image style={styles.thumbIcon} source={require('../../../assets/icon/myQueryIcon.png')} />} arrow="horizontal">
-          <View style={styles.labelWrapper}>
-            <Text style={styles.itemLabel}>我的咨询</Text>
-          </View>
-        </Item>
-        <Item thumb={<Image style={styles.thumbIcon} source={require('../../../assets/icon/myCollectIcon.png')} />} arrow="horizontal">
-          <View style={styles.labelWrapper}>
-            <Text style={styles.itemLabel}>我的收藏</Text>
-          </View>
-        </Item>
-        <Item  thumb={<Image style={styles.thumbIcon} source={require('../../../assets/icon/myNewsIcon.png')} />} arrow="horizontal">
-          <View style={styles.labelWrapper}>
-            <Text style={styles.itemLabel}>我的消息</Text>
-          </View>
-        </Item>
+        {
+          personCenterList.map((item, index)=>{
+            return (
+              <Item key={index} thumb={<Image style={styles.thumbIcon} source={item.thumbIcon} />} arrow="horizontal">
+                <View style={styles.labelWrapper}>
+                  <Text style={styles.itemLabel}>{item.itemLabel}</Text>
+                </View>
+              </Item>
+            )
+          })
+        }
       </List>
       <List style={{marginTop:20}} renderHeader={<Text style={styles.personTitle}>其他</Text>}>
-        <Item  thumb={<Image style={styles.thumbIcon} source={require('../../../assets/icon/setIcon.png')} />} arrow="horizontal">
-          <View style={styles.labelWrapper}>
-            <Text style={styles.itemLabel}>设置</Text>
-          </View>
-        </Item>
-        <Item thumb={<Image style={styles.thumbIcon} source={require('../../../assets/icon/feedBackIcon.png')} />} arrow="horizontal">
-          <View style={styles.labelWrapper}>
-            <Text style={styles.itemLabel}>帮助反馈</Text>
-          </View>
-        </Item>
-        <Item thumb={<Image style={styles.thumbIcon} source={require('../../../assets/icon/aboutUsIcon.png')} />} arrow="horizontal">
-          <View style={styles.labelWrapper}>
-            <Text style={styles.itemLabel}>关于我们</Text>
-          </View>
-        </Item>
+        {
+          otherList.map((item, index)=>{
+            return (
+              <Item key={index}  thumb={<Image style={styles.thumbIcon} source={item.thumbIcon} />} arrow="horizontal">
+                <View style={styles.labelWrapper}>
+                  <Text style={styles.itemLabel}>{item.label}</Text>
+                </View>
+              </Item>
+            )
+          })
+        }
       </List>
     </View>
   )

@@ -5,6 +5,9 @@ import {
 } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from "./HomeScreen";
+import Aadvisory from "./Advisory";
+import TreeHole from "./TreeHole";
+import Find from "./Find";
 import PersonalCenter from "./PersonalCenter";
 
 const Tab = createBottomTabNavigator();
@@ -53,9 +56,9 @@ class Main extends  Component {
         }}
       >
         <Tab.Screen name="home" options={{title:'首页'}} component={HomeScreen} />
-        <Tab.Screen name="advisory" options={{title:'咨询'}} component={HomeScreen} />
-        <Tab.Screen name="treeHole" options={{title:'树洞'}} component={HomeScreen} />
-        <Tab.Screen name="find" options={{title:'发现'}}  component={HomeScreen} />
+        <Tab.Screen name="advisory" options={{title:'咨询'}} component={Aadvisory} />
+        <Tab.Screen name="treeHole" options={{title:'树洞'}} component={TreeHole} />
+        <Tab.Screen name="find" options={{title:'发现'}}  component={Find} />
         <Tab.Screen name="personalCenter" options={{title:'我的'}}  component={PersonalCenter} />
       </Tab.Navigator>
     )

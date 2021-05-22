@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { SafeAreaView, ScrollView, View, StyleSheet, Image, Text } from "react-native";
 import Person from "./Components/Person";
+import Theme from '../../Theme'
 
 class PersonalCenter extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class PersonalCenter extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <SafeAreaView style={{ flex:0, backgroundColor: '#7EC7B6' }} />
+        <SafeAreaView style={{ flex:0, backgroundColor: Theme.mainColor }} />
         <ScrollView style={styles.scrollContainer}>
           <View style={styles.header}>
             <View style={styles.grassWrapper}>
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   header: {
-    backgroundColor: '#7EC7B6',
+    backgroundColor: Theme.mainColor,
     height: 200,
     flexDirection: 'row',
     alignItems: 'flex-end',
