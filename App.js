@@ -1,16 +1,21 @@
 import React from 'react';
 import type {Node} from 'react';
 import {
-  SafeAreaView,
-  ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
   useColorScheme,
   View,
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+const Stack = createStackNavigator();
 import Main from "./src/main";
+import MindEvaluate from "./src/MindEvaluate";
+import Recruitment from "./src/Recruitment";
+import MindVideo from "./src/MindVideo";
+import MindFM from "./src/MindFM";
 
 import {
   Colors,
@@ -19,33 +24,6 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
-
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -54,18 +32,20 @@ const App: () => Node = () => {
   };
 
   return (
-     <NavigationContainer>
-         <View style={[backgroundStyle,{flex:1}]}>
-           <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-           <Main />
-           {/*<ScrollView*/}
-           {/*  contentInsetAdjustmentBehavior="automatic"*/}
-           {/*  style={backgroundStyle}>*/}
-           {/*  <Header />*/}
-           {/*  <Button  type="primary">开始</Button>*/}
-           {/*</ScrollView>*/}
-         </View>
-     </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <View style={[backgroundStyle,{flex:1}]}>
+          <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+          <Stack.Navigator headerMode="none">
+            <Stack.Screen name="Main" component={Main} />
+            <Stack.Screen name="MindEvaluate" component={MindEvaluate} />
+            <Stack.Screen name="Recruitment" component={Recruitment} />
+            <Stack.Screen name="MindVideo" component={MindVideo} />
+            <Stack.Screen name="MindFM" component={MindFM} />
+          </Stack.Navigator>
+        </View>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 };
 

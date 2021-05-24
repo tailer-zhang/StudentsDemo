@@ -71,5 +71,4 @@ const styles = StyleSheet.create({
     height: 22
   }
 })
-
 export default Main

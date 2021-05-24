@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { StyleSheet, View, Text,SafeAreaView, NativeModules,Dimensions,
-  Image,TextInput, ImageBackground } from "react-native";
+  Image,TextInput, ImageBackground,
+  TouchableOpacity
+} from "react-native";
 import moment from 'moment';
 import TabsBox from "./Components/TabsBox";
 
@@ -23,6 +25,7 @@ class HomeScreen extends Component {
   }
   render() {
     let {nowDate,nowWeek}  = this.state
+    let {navigation}  = this.props
     return (
         <View style={styles.container}>
           <SafeAreaView style={{ flex:0, backgroundColor: 'rgb(126, 199, 182)' }} />
@@ -47,22 +50,59 @@ class HomeScreen extends Component {
             </View>
           </View>
           <View style={styles.gridBox}>
-            <View style={styles.gridItem}>
-              <Image style={styles.gridIcon} source={require('../../assets/icon/mindEvaluationIcon.png')} />
-              <Text style={styles.gridLabel}>心理评测</Text>
-            </View>
-            <View style={styles.gridItem}>
-              <Image style={styles.gridIcon} source={require('../../assets/icon/mindVideoIcon.png')} />
-              <Text style={styles.gridLabel}>心理视频</Text>
-            </View>
-            <View style={styles.gridItem}>
-              <Image style={styles.gridIcon} source={require('../../assets/icon/mindBookIcon.png')} />
-              <Text style={styles.gridLabel}>心理书籍</Text>
-            </View>
-            <View style={styles.gridItem}>
-              <Image style={styles.gridIcon} source={require('../../assets/icon/mindFMIcon.png')} />
-              <Text style={styles.gridLabel}>心理FM</Text>
-            </View>
+              <TouchableOpacity
+                style={styles.gridItem}
+                onPress={
+                  ()=>{
+                    navigation.navigate('MindEvaluate');
+                  }
+                }
+              >
+                <>
+                  <Image style={styles.gridIcon} source={require('../../assets/icon/mindEvaluationIcon.png')} />
+                  <Text style={styles.gridLabel}>心理评测</Text>
+                </>
+              </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.gridItem}
+              onPress={
+                ()=>{
+                  navigation.navigate('MindVideo');
+                }
+              }
+            >
+              <>
+                <Image style={styles.gridIcon} source={require('../../assets/icon/mindVideoIcon.png')} />
+                <Text style={styles.gridLabel}>心理视频</Text>
+              </>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.gridItem}
+              onPress={
+                ()=>{
+                  navigation.navigate('Recruitment');
+                }
+              }
+            >
+              <>
+                <Image style={styles.gridIcon} source={require('../../assets/icon/mindBookIcon.png')} />
+                <Text style={styles.gridLabel}>心理书籍</Text>
+              </>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.gridItem}
+              onPress={
+                ()=>{
+                  navigation.navigate('MindFM');
+                }
+              }
+            >
+              <>
+                <Image style={styles.gridIcon} source={require('../../assets/icon/mindFMIcon.png')} />
+                <Text style={styles.gridLabel}>心理FM</Text>
+              </>
+            </TouchableOpacity>
           </View>
           <View style={styles.DateBox}>
             <View style={styles.nowDate}>

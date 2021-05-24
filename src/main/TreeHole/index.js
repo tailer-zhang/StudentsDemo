@@ -155,7 +155,7 @@ export default class TreeHole extends Component {
 
         </View>
         <Tabs style={{marginTop: 40}}
-          tabs={tabs}
+          tabs={tabs} tabBarBackgroundColor={'transparent'}
           tabBarUnderlineStyle={{backgroundColor:'rgb(126, 199, 182)'}}
           tabBarTextStyle={{fontSize:16}}
           tabBarActiveTextColor={'rgb(126, 199, 182)'}
