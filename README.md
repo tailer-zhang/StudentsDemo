@@ -13,3 +13,7 @@ react native
  npm run ios  运行ios
  npm run android  运行andoid
 ```
+
+## 演示图
+![image](https://github.com/tailer-zhang/StudentsDemo/tree/master/GIF/demo.gif)
+
