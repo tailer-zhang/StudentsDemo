@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {
+  useEffect
+} from 'react';
 import type {Node} from 'react';
 import {
   StatusBar,
@@ -16,7 +18,7 @@ import MindEvaluate from "./src/MindEvaluate";
 import Recruitment from "./src/Recruitment";
 import MindVideo from "./src/MindVideo";
 import MindFM from "./src/MindFM";
-
+import SplashScreen from 'react-native-splash-screen';
 import {
   Colors,
   DebugInstructions,
@@ -30,7 +32,9 @@ const App: () => Node = () => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
-
+  useEffect(() => {
+    SplashScreen.hide();
+  })
   return (
     <SafeAreaProvider>
       <NavigationContainer>
