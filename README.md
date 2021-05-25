@@ -15,5 +15,5 @@ react native
 ```
 
 ## 演示图
-![image](https://github.com/tailer-zhang/StudentsDemo/tree/master/GIF/demo.gif)
+![image](https://github.com/tailer-zhang/StudentsDemo/blob/master/GIF/demo.gif)
 
