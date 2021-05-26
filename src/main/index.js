@@ -65,6 +65,7 @@ class Main extends  Component {
   }
 }
 
+
 const styles = StyleSheet.create({
   tabBottomIcon: {
     width: 22,

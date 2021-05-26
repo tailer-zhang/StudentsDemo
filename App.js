@@ -1,5 +1,6 @@
 import React, {
-  useEffect
+  useEffect,
+  useState
 } from 'react';
 import type {Node} from 'react';
 import {
@@ -13,18 +14,19 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const Stack = createStackNavigator();
+
+import storage from "./src/Storage";
+
 import Main from "./src/main";
 import MindEvaluate from "./src/MindEvaluate";
 import Recruitment from "./src/Recruitment";
 import MindVideo from "./src/MindVideo";
 import MindFM from "./src/MindFM";
 import SplashScreen from 'react-native-splash-screen';
+import Welcome from "./src/Welcome";
+
 import {
   Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -32,16 +34,25 @@ const App: () => Node = () => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+  const [mainRoute,setMainRoute] = useState('Welcome')
   useEffect(() => {
-    SplashScreen.hide();
+    storage.load({key :'launchState'}).then(res=>{
+      if(res&&res.firstLaunch) {
+        setMainRoute('Main')
+      }
+      SplashScreen.hide();
+    }).catch(()=>{
+      SplashScreen.hide();
+    })
+
   })
   return (
     <SafeAreaProvider>
       <NavigationContainer>
         <View style={[backgroundStyle,{flex:1}]}>
-          <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
           <Stack.Navigator headerMode="none">
-            <Stack.Screen name="Main" component={Main} />
+            {mainRoute=='Welcome'&&<Stack.Screen name="Welcome" component={Welcome} />}
+            <Stack.Screen options={{gestureEnabled: false}} name="Main" component={Main} />
             <Stack.Screen name="MindEvaluate" component={MindEvaluate} />
             <Stack.Screen name="Recruitment" component={Recruitment} />
             <Stack.Screen name="MindVideo" component={MindVideo} />
