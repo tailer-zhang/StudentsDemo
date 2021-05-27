@@ -75,7 +75,8 @@ class TabsBox extends Component {
     return (
         <Tabs
           tabBarUnderlineStyle={{backgroundColor:'rgb(126, 199, 182)'}}
-          tabBarTextStyle={{fontSize:16}}
+          tabBarBackgroundColor={'transparent'}
+          tabBarTextStyle={{fontSize:15}}
           tabBarActiveTextColor={'rgb(126, 199, 182)'}
           tabBarInactiveTextColor={'#333'}
           tabs={tabs}>

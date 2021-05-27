@@ -26,6 +26,8 @@ export default class Find extends Component {
               }
             ]}>
               <TextInput style={styles.searchText}
+                         placeholderTextColor="rgb(81, 81, 81)"
+                         selectionColor="rgb(126, 199, 182)"
                          placeholder="搜索你感兴趣的内容" />
               <ImageBackground style={styles.searchIcon} source={require('../../assets/icon/searchIcon.png')} />
             </View>
@@ -137,7 +139,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   funnyWrapper: {
-    width: 183,
+    width: 190,
     height: 261,
     borderRadius: 10,
     shadowColor:'rgba(126, 199, 182, .8)',

@@ -149,6 +149,8 @@ export default class TreeHole extends Component {
             }
           ]}>
             <TextInput style={styles.searchText}
+                       placeholderTextColor="rgb(81, 81, 81)"
+                       selectionColor="rgb(126, 199, 182)"
                        placeholder="搜索你感兴趣的话题  #学习" />
             <ImageBackground style={styles.searchIcon} source={require('../../assets/icon/searchIcon.png')} />
           </View>
@@ -157,7 +159,7 @@ export default class TreeHole extends Component {
         <Tabs style={{marginTop: 40}}
           tabs={tabs} tabBarBackgroundColor={'transparent'}
           tabBarUnderlineStyle={{backgroundColor:'rgb(126, 199, 182)'}}
-          tabBarTextStyle={{fontSize:16}}
+          tabBarTextStyle={{fontSize:15}}
           tabBarActiveTextColor={'rgb(126, 199, 182)'}
           tabBarInactiveTextColor={'#333'}
         >

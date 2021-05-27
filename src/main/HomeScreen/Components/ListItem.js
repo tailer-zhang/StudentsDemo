@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: 'rgb(81, 81, 81)',
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '700'
   },
   personIcon: {

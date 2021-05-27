@@ -38,7 +38,7 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = StudentsDemo/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = StudentsDemo/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = StudentsDemo/main.m; sourceTree = "<group>"; };
-		1460D55DDE6949969C5BB6AE /* antoutline.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = antoutline.ttf; path = "../node_modules/@ant-design/icons-react-native/fonts/antoutline.ttf"; sourceTree = "<group>"; };
+		1460D55DDE6949969C5BB6AE /* antoutline.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = antoutline.ttf; path = "../node_modules/@ant-design/icons-react-native/fonts/antoutline.ttf"; sourceTree = "<group>"; };
 		4E15AFB8570B7E75F4796DF3 /* libPods-StudentsDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StudentsDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = StudentsDemo/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9208EA9DDCE0D2C841B56202 /* Pods-StudentsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudentsDemo.release.xcconfig"; path = "Target Support Files/Pods-StudentsDemo/Pods-StudentsDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		BB21856BDAF799451F3A36B9 /* Pods-StudentsDemo-StudentsDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudentsDemo-StudentsDemoTests.release.xcconfig"; path = "Target Support Files/Pods-StudentsDemo-StudentsDemoTests/Pods-StudentsDemo-StudentsDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF34CBFA4E39F671B8728EA7 /* Pods-StudentsDemo-StudentsDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudentsDemo-StudentsDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-StudentsDemo-StudentsDemoTests/Pods-StudentsDemo-StudentsDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BFF4EC546E73345472858D8F /* libPods-StudentsDemo-StudentsDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StudentsDemo-StudentsDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E57C0817AEB64DA38508386F /* antfill.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = antfill.ttf; path = "../node_modules/@ant-design/icons-react-native/fonts/antfill.ttf"; sourceTree = "<group>"; };
+		E57C0817AEB64DA38508386F /* antfill.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = antfill.ttf; path = "../node_modules/@ant-design/icons-react-native/fonts/antfill.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -95,7 +95,6 @@
 				BF34CBFA4E39F671B8728EA7 /* Pods-StudentsDemo-StudentsDemoTests.debug.xcconfig */,
 				BB21856BDAF799451F3A36B9 /* Pods-StudentsDemo-StudentsDemoTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -129,7 +128,6 @@
 				1460D55DDE6949969C5BB6AE /* antoutline.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -501,7 +499,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X7GQ9Z4V4Y;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = StudentsDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -513,8 +513,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chyjr.customers;
 				PRODUCT_NAME = StudentsDemo;
+				PROVISIONING_PROFILE_SPECIFIER = haiyinzhangshang;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -527,7 +528,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X7GQ9Z4V4Y;
 				INFOPLIST_FILE = StudentsDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -538,8 +541,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chyjr.customers;
 				PRODUCT_NAME = StudentsDemo;
+				PROVISIONING_PROFILE_SPECIFIER = haiyinzhangshang;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

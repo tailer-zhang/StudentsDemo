@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { StyleSheet, View, Text,SafeAreaView, NativeModules,Dimensions,
-  Image,TextInput, ImageBackground,
-  TouchableOpacity
+  Image,TextInput, ImageBackground, TouchableWithoutFeedback,
+  TouchableOpacity,Keyboard
 } from "react-native";
 import moment from 'moment';
 import TabsBox from "./Components/TabsBox";
@@ -27,7 +27,12 @@ class HomeScreen extends Component {
     let {nowDate,nowWeek}  = this.state
     let {navigation}  = this.props
     return (
-        <View style={styles.container}>
+        <TouchableWithoutFeedback
+          onPress={()=>{
+            Keyboard.dismiss()
+          }}
+          style={styles.container}>
+          <>
           <SafeAreaView style={{ flex:0, backgroundColor: 'rgb(126, 199, 182)' }} />
           <View style={styles.bannerWrapper}>
             <Image
@@ -45,6 +50,8 @@ class HomeScreen extends Component {
               }
             ]}>
               <TextInput style={styles.searchText}
+                         placeholderTextColor="rgb(81, 81, 81)"
+                         selectionColor="rgb(126, 199, 182)"
                 placeholder="搜索你感兴趣的内容" />
               <ImageBackground style={styles.searchIcon} source={require('../../assets/icon/searchIcon.png')} />
             </View>
@@ -113,7 +120,8 @@ class HomeScreen extends Component {
             </View>
           </View>
           <TabsBox />
-        </View>
+          </>
+        </TouchableWithoutFeedback>
     );
   }
 }
@@ -184,7 +192,8 @@ const styles = StyleSheet.create({
     alignItems:'center',
     paddingRight: 15,
     fontSize: 10,
-    marginTop: 20
+    marginTop: 20,
+    marginBottom: 5
   },
   nowDate: {
     color: 'rgb(126, 199, 182)',

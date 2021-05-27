@@ -22,6 +22,8 @@ class Aadvisory extends Component {
             }
           ]}>
             <TextInput style={styles.searchText}
+                       placeholderTextColor="rgb(81, 81, 81)"
+                       selectionColor="rgb(126, 199, 182)"
                        placeholder="搜索你想要的咨询师/咨询时间" />
             <ImageBackground style={styles.searchIcon} source={require('../../assets/icon/searchIcon.png')} />
           </View>

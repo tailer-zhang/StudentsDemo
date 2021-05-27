@@ -2,7 +2,7 @@ import React, {
   useEffect,
   useState
 } from 'react';
-import type {Node} from 'react';
+import type {Node} from 'react';840
 import {
   StatusBar,
   StyleSheet,

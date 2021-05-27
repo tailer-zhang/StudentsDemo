@@ -9,6 +9,8 @@ export default class Search extends Component {
       <View style={styles.searchBarWrapper}>
         <View style={styles.searchBar}>
           <TextInput style={styles.searchText}
+                     placeholderTextColor="rgb(81, 81, 81)"
+                     selectionColor="rgb(126, 199, 182)"
                      placeholder={placeholder} />
           <ImageBackground style={styles.searchIcon} source={require('../assets/icon/searchIcon.png')} />
         </View>
