@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { StyleSheet, View, Text,SafeAreaView, NativeModules,Dimensions,
-  Image,TextInput, ImageBackground, TouchableWithoutFeedback,
-  TouchableOpacity,Keyboard
+  Image,TextInput, ImageBackground, TouchableOpacity
 } from "react-native";
 import moment from 'moment';
 import TabsBox from "./Components/TabsBox";
@@ -27,12 +26,7 @@ class HomeScreen extends Component {
     let {nowDate,nowWeek}  = this.state
     let {navigation}  = this.props
     return (
-        <TouchableWithoutFeedback
-          onPress={()=>{
-            Keyboard.dismiss()
-          }}
-          style={styles.container}>
-          <>
+        <View style={styles.container}>
           <SafeAreaView style={{ flex:0, backgroundColor: 'rgb(126, 199, 182)' }} />
           <View style={styles.bannerWrapper}>
             <Image
@@ -120,8 +114,8 @@ class HomeScreen extends Component {
             </View>
           </View>
           <TabsBox />
-          </>
-        </TouchableWithoutFeedback>
+
+        </View>
     );
   }
 }

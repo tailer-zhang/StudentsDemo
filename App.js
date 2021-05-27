@@ -8,7 +8,8 @@ import {
   StyleSheet,
   useColorScheme,
   View,
-} from 'react-native';
+  TouchableWithoutFeedback, Keyboard, TouchableOpacity,
+} from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -49,7 +50,12 @@ const App: () => Node = () => {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <View style={[backgroundStyle,{flex:1}]}>
+        <TouchableOpacity
+          activeOpacity={1.0}
+          onPress={()=>{
+            Keyboard.dismiss()
+          }}
+          style={[backgroundStyle,{flex:1}]}>
           <Stack.Navigator headerMode="none">
             {mainRoute=='Welcome'&&<Stack.Screen name="Welcome" component={Welcome} />}
             <Stack.Screen options={{gestureEnabled: false}} name="Main" component={Main} />
@@ -58,7 +64,7 @@ const App: () => Node = () => {
             <Stack.Screen name="MindVideo" component={MindVideo} />
             <Stack.Screen name="MindFM" component={MindFM} />
           </Stack.Navigator>
-        </View>
+        </TouchableOpacity>
       </NavigationContainer>
     </SafeAreaProvider>
   );
