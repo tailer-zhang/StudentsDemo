@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image, ImageBackground} from 'react-native'
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 
 class ListItem extends Component {
@@ -14,39 +15,47 @@ class ListItem extends Component {
         {
           listData&&listData.map((item,index)=>{
             return (
-              <View key={index} style={styles.listWrapper}>
-                <View>
-                  <Image style={styles.avatorImg} source={item.avatorImg} />
-                </View>
-                <View style={styles.listRight}>
-                  <Text style={styles.title}>
-                    {item.title}
-                  </Text>
-                  <View style={styles.titleAuthor}>
-                    <ImageBackground style={styles.personIcon} source={require('../../../assets/icon/personIcon.png')}  />
-                    <Text style={{
-                      fontSize: 12,
-                      color: 'rgb(81, 81, 81)',
-                      fontWeight: '400'
-                    }}>{item.titleAuthor}</Text>
+              <TouchableOpacity
+                key={index}
+                onPress={()=>{
+                  this.props.feedback()
+                }}
+              >
+                <View style={styles.listWrapper}>
+                  <View>
+                    <Image style={styles.avatorImg} source={item.avatorImg} />
                   </View>
-                  <View style={styles.instruction}>
-                    <Text style={styles.tags}>
-                      {item.tags}
+                  <View style={styles.listRight}>
+                    <Text style={styles.title}>
+                      {item.title}
                     </Text>
-                    <View style={styles.browseWrapper}>
-                      <View style={styles.starBox}>
-                        <Text style={styles.starLabel}>{item.starLabel}</Text>
-                        <ImageBackground style={styles.starIcon} source={require('../../../assets/icon/starIcon.png')} />
-                      </View>
-                      <View style={[styles.starBox,styles.conmmentBox]}>
-                        <Text style={styles.starLabel}>{item.conmmentLabel}</Text>
-                        <ImageBackground style={styles.starIcon} source={require('../../../assets/icon/commentIcon.png')} />
+                    <View style={styles.titleAuthor}>
+                      <ImageBackground style={styles.personIcon} source={require('../../../assets/icon/personIcon.png')}  />
+                      <Text style={{
+                        fontSize: 12,
+                        color: 'rgb(81, 81, 81)',
+                        fontWeight: '400'
+                      }}>{item.titleAuthor}</Text>
+                    </View>
+                    <View style={styles.instruction}>
+                      <Text style={styles.tags}>
+                        {item.tags}
+                      </Text>
+                      <View style={styles.browseWrapper}>
+                        <View style={styles.starBox}>
+                          <Text style={styles.starLabel}>{item.starLabel}</Text>
+                          <ImageBackground style={styles.starIcon} source={require('../../../assets/icon/starIcon.png')} />
+                        </View>
+                        <View style={[styles.starBox,styles.conmmentBox]}>
+                          <Text style={styles.starLabel}>{item.conmmentLabel}</Text>
+                          <ImageBackground style={styles.starIcon} source={require('../../../assets/icon/commentIcon.png')} />
+                        </View>
                       </View>
                     </View>
                   </View>
                 </View>
-              </View>
+
+              </TouchableOpacity>
             )
           })
         }

@@ -2,12 +2,14 @@ import React, {Component} from 'react';
 import { SafeAreaView, ScrollView, View, StyleSheet, Image, Text } from "react-native";
 import Person from "./Components/Person";
 import Theme from '../../Theme'
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 class PersonalCenter extends Component {
   constructor(props) {
     super(props);
   }
   render() {
+    let {navigation} = this.props;
     return (
       <View style={styles.container}>
         <SafeAreaView style={{ flex:0, backgroundColor: Theme.mainColor }} />
@@ -24,22 +26,26 @@ class PersonalCenter extends Component {
             </View>
           </View>
           <View style={styles.userBox}>
-            <View style={[
-              styles.userContainer,
-              {
+            <TouchableOpacity
+              activeOpacity={1}
+              style={[styles.userContainer, {
                 shadowColor:'rgba(126, 199, 182, .6)',
                 shadowOffset:{width:1,height:5},
                 shadowOpacity: .7,
                 shadowRadius: 20,
               }
-            ]}>
+            ]}
+              onPress={()=>{
+                navigation.navigate('PersonalInfo')
+              }}
+            >
               <Image style={styles.userAvator} source={require('../../assets/img/userAvator.png')} />
               <View style={styles.userInfo}>
                 <Text style={styles.userName}>陈云霞</Text>
                 <Text style={styles.userClassLabel}>2017级工业设计1班</Text>
               </View>
-              <Image style={styles.moreIcon} source={require('../../assets/icon/moreIcon.png')} />
-            </View>
+                <Image style={styles.moreIcon} source={require('../../assets/icon/moreIcon.png')} />
+            </TouchableOpacity>
           </View>
           <Person />
         </ScrollView>

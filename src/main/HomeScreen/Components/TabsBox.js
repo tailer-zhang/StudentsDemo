@@ -16,6 +16,30 @@ class TabsBox extends Component {
       dayRecommend:[
         {
           avatorImg: require('../../../assets/img/avator01.png'),
+          title: '心理学科普：你以为的心理学vs真正的心理学',
+          titleAuthor: '简单心理：李歪歪',
+          tags: '#心理学·科普',
+          starLabel: 125,
+          conmmentLabel: 66
+        },
+        {
+          avatorImg: require('../../../assets/img/avator01.png'),
+          title: '寒门博士意外走红：不要低估你10年内能做的事',
+          titleAuthor: '武志红&张罐子',
+          tags: '#博士·真实故事·学术',
+          starLabel: 56,
+          conmmentLabel: 32
+        },
+        {
+          avatorImg: require('../../../assets/img/avator01.png'),
+          title: '应用心理学：中国大学生动态情绪面孔库的建设',
+          titleAuthor: '武志红&张罐子',
+          tags: '#博士·真实故事·学术',
+          starLabel: 56,
+          conmmentLabel: 32
+        },
+        {
+          avatorImg: require('../../../assets/img/avator01.png'),
           title: '当我熬夜到两三点，才觉得真正拥有生活|‘报复性熬夜’心理研究',
           titleAuthor: '简单心理：瑾+酒鬼',
           tags: '#熬夜·沉迷手机·心理机制',
@@ -70,6 +94,10 @@ class TabsBox extends Component {
 
     }
   }
+  feedBack = () => {
+    let {navigation} = this.props
+    navigation.navigate('NewsDetails')
+  }
   render() {
     let {tabs, dayRecommend, personGrowth, mindHealth} = this.state;
     return (
@@ -81,7 +109,7 @@ class TabsBox extends Component {
           tabBarInactiveTextColor={'#333'}
           tabs={tabs}>
             <ScrollView style={{flex: 1}}>
-              <ListItem listData={dayRecommend} />
+              <ListItem feedback={this.feedBack} listData={dayRecommend} />
             </ScrollView>
             <ScrollView style={{flex: 1}}>
               <ListItem listData={personGrowth} />

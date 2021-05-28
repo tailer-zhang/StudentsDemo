@@ -20,11 +20,37 @@ class HomeScreen extends Component {
     this.state={
       nowDate: moment().format('MM.DD'),
       nowWeek: moment().weekday(),
+      gridData: [
+        {
+          gridIcon: require('../../assets/icon/mindEvaluationIcon.png'),
+          gridLabel: '心理评测',
+          routeName: 'MindEvaluate'
+
+      },
+        {
+          gridIcon: require('../../assets/icon/experimentIcon.png'),
+          gridLabel: '实验招募',
+          routeName: 'Recruitment'
+        },
+        {
+          gridIcon: require('../../assets/icon/mindVideoIcon.png'),
+          gridLabel: '心理视频',
+          routeName: 'MindVideo'
+        },
+        {
+          gridIcon: require('../../assets/icon/mindFMIcon.png'),
+          gridLabel: '心理FM',
+          routeName: 'MindFM'
+        },
+      ]
     }
   }
-  render() {
-    let {nowDate,nowWeek}  = this.state
+  jump(routeName){
     let {navigation}  = this.props
+    navigation.navigate(routeName);
+  }
+  render() {
+    let {nowDate,nowWeek, gridData}  = this.state
     return (
         <View style={styles.container}>
           <SafeAreaView style={{ flex:0, backgroundColor: 'rgb(126, 199, 182)' }} />
@@ -51,59 +77,21 @@ class HomeScreen extends Component {
             </View>
           </View>
           <View style={styles.gridBox}>
-              <TouchableOpacity
-                style={styles.gridItem}
-                onPress={
-                  ()=>{
-                    navigation.navigate('MindEvaluate');
+            {gridData.map((item,index)=>{
+              return (
+                <TouchableOpacity key={index}
+                  style={styles.gridItem}
+                  onPress={
+                    this.jump.bind(this,item.routeName)
                   }
-                }
-              >
-                <>
-                  <Image style={styles.gridIcon} source={require('../../assets/icon/mindEvaluationIcon.png')} />
-                  <Text style={styles.gridLabel}>心理评测</Text>
-                </>
-              </TouchableOpacity>
-
-            <TouchableOpacity
-              style={styles.gridItem}
-              onPress={
-                ()=>{
-                  navigation.navigate('MindVideo');
-                }
-              }
-            >
-              <>
-                <Image style={styles.gridIcon} source={require('../../assets/icon/mindVideoIcon.png')} />
-                <Text style={styles.gridLabel}>心理视频</Text>
-              </>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.gridItem}
-              onPress={
-                ()=>{
-                  navigation.navigate('Recruitment');
-                }
-              }
-            >
-              <>
-                <Image style={styles.gridIcon} source={require('../../assets/icon/mindBookIcon.png')} />
-                <Text style={styles.gridLabel}>心理书籍</Text>
-              </>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.gridItem}
-              onPress={
-                ()=>{
-                  navigation.navigate('MindFM');
-                }
-              }
-            >
-              <>
-                <Image style={styles.gridIcon} source={require('../../assets/icon/mindFMIcon.png')} />
-                <Text style={styles.gridLabel}>心理FM</Text>
-              </>
-            </TouchableOpacity>
+                >
+                  <>
+                    <Image style={styles.gridIcon} source={item.gridIcon} />
+                    <Text style={styles.gridLabel}>{item.gridLabel}</Text>
+                  </>
+                </TouchableOpacity>
+              )
+            })}
           </View>
           <View style={styles.DateBox}>
             <View style={styles.nowDate}>
@@ -113,7 +101,7 @@ class HomeScreen extends Component {
               <Text  style={styles.nowWeekLabel}>{weekTransform[nowWeek]}</Text>
             </View>
           </View>
-          <TabsBox />
+          <TabsBox navigation={this.props.navigation} />
 
         </View>
     );

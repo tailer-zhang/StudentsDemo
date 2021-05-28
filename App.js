@@ -2,7 +2,7 @@ import React, {
   useEffect,
   useState
 } from 'react';
-import type {Node} from 'react';840
+import type {Node} from 'react';
 import {
   StatusBar,
   StyleSheet,
@@ -25,6 +25,8 @@ import MindVideo from "./src/MindVideo";
 import MindFM from "./src/MindFM";
 import SplashScreen from 'react-native-splash-screen';
 import Welcome from "./src/Welcome";
+import NewsDetails from "./src/NewsDetails";
+import PersonalInfo from "./src/PersonalInfo";
 
 import {
   Colors,
@@ -50,12 +52,6 @@ const App: () => Node = () => {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <TouchableOpacity
-          activeOpacity={1.0}
-          onPress={()=>{
-            Keyboard.dismiss()
-          }}
-          style={[backgroundStyle,{flex:1}]}>
           <Stack.Navigator headerMode="none">
             {mainRoute=='Welcome'&&<Stack.Screen name="Welcome" component={Welcome} />}
             <Stack.Screen options={{gestureEnabled: false}} name="Main" component={Main} />
@@ -63,8 +59,9 @@ const App: () => Node = () => {
             <Stack.Screen name="Recruitment" component={Recruitment} />
             <Stack.Screen name="MindVideo" component={MindVideo} />
             <Stack.Screen name="MindFM" component={MindFM} />
+            <Stack.Screen name="NewsDetails" component={NewsDetails} />
+            <Stack.Screen name="PersonalInfo" component={PersonalInfo} />
           </Stack.Navigator>
-        </TouchableOpacity>
       </NavigationContainer>
     </SafeAreaProvider>
   );
