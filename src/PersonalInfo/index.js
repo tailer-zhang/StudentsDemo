@@ -1,13 +1,11 @@
-import React, {Component} from 'react';
-import { SafeAreaView, View, StyleSheet, Text, Image } from "react-native";
+import React, {useState} from 'react';
+import { SafeAreaView, View, StyleSheet, Text, Image, TouchableOpacity } from "react-native";
 import Header from "../Components/Header";
 import { ScrollView } from "react-native-gesture-handler";
 
-export default class PersonalInfo extends Component {
-  constructor() {
-    super();
-    this.state = {
-      personInfo: [
+const PersonalInfo = (props) =>{
+
+    let [personInfo] = useState([
         {
           label: '头像',
           personAvatar: require('../assets/img/personAvatar.png')
@@ -36,15 +34,11 @@ export default class PersonalInfo extends Component {
           label: '班级',
           itemText:'17工设1班',
         }
-      ]
-    }
-  }
-  render() {
-    let {personInfo} = this.state
+      ])
     return (
       <View style={styles.container}>
         <SafeAreaView style={{ flex:0, backgroundColor: '#fff' }} />
-        <Header navigation={this.props.navigation} title={'个人信息'} />
+        <Header navigation={props.navigation} title={'个人信息'} />
         <ScrollView>
           {
             personInfo.map((item,index)=>{
@@ -63,13 +57,22 @@ export default class PersonalInfo extends Component {
               )
             })
           }
+          <TouchableOpacity
+            activeOpacity={1}
+            style={styles.logOut}
+            onPress={()=>{
+
+            }}
+          >
+            <Text style={{color: '#fff'}}>安全退出</Text>
+          </TouchableOpacity>
 
         </ScrollView>
       </View>
     );
-  }
 }
 
+export default PersonalInfo
 
 const styles = StyleSheet.create({
   container: {
@@ -109,5 +112,15 @@ const styles = StyleSheet.create({
     width: 55,
     height: 53,
     marginRight: 10
+  },
+  logOut: {
+    marginTop: 50,
+    height: 44,
+    alignItems:'center',
+    justifyContent: 'center',
+    marginLeft: 40,
+    marginRight: 40,
+    backgroundColor:'rgb(126, 199, 182)',
+    borderRadius: 5
   }
 })

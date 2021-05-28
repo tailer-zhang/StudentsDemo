@@ -1,9 +1,9 @@
 import React, {Component,useState} from 'react';
-import {View, StyleSheet, Text, Image} from 'react-native';
+import {View, StyleSheet, Text, Image, TouchableOpacity} from 'react-native';
 import { List } from '@ant-design/react-native';
 
 const Item = List.Item;
-const Person = () =>{
+const Person = ({navigation}) =>{
   const [personCenterList] = useState([
       {
         thumbIcon: require('../../../assets/icon/evaluationIcon.png'),
@@ -42,10 +42,17 @@ const Person = () =>{
         {
           personCenterList.map((item, index)=>{
             return (
-              <Item key={index} thumb={<Image style={styles.thumbIcon} source={item.thumbIcon} />} arrow="horizontal">
-                <View style={styles.labelWrapper}>
+              <Item
+                key={index} thumb={<Image style={styles.thumbIcon} source={item.thumbIcon} />} arrow="horizontal">
+                <TouchableOpacity
+                  activeOpacity={1}
+                  onPress={()=>{
+
+                  }}
+                  style={styles.labelWrapper}
+                >
                   <Text style={styles.itemLabel}>{item.itemLabel}</Text>
-                </View>
+                </TouchableOpacity>
               </Item>
             )
           })

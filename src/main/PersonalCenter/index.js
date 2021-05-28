@@ -47,7 +47,7 @@ class PersonalCenter extends Component {
                 <Image style={styles.moreIcon} source={require('../../assets/icon/moreIcon.png')} />
             </TouchableOpacity>
           </View>
-          <Person />
+          <Person navigation={this.props.navigation} />
         </ScrollView>
 
       </View>

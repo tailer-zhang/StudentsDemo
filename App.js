@@ -27,6 +27,7 @@ import SplashScreen from 'react-native-splash-screen';
 import Welcome from "./src/Welcome";
 import NewsDetails from "./src/NewsDetails";
 import PersonalInfo from "./src/PersonalInfo";
+import MyEvaluation from "./src/MyEvaluation";
 
 import {
   Colors,
@@ -61,6 +62,7 @@ const App: () => Node = () => {
             <Stack.Screen name="MindFM" component={MindFM} />
             <Stack.Screen name="NewsDetails" component={NewsDetails} />
             <Stack.Screen name="PersonalInfo" component={PersonalInfo} />
+            <Stack.Screen name="MyEvaluation" component={MyEvaluation} />
           </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
