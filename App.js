@@ -28,6 +28,8 @@ import Welcome from "./src/Welcome";
 import NewsDetails from "./src/NewsDetails";
 import PersonalInfo from "./src/PersonalInfo";
 import MyEvaluation from "./src/MyEvaluation";
+import Login from "./src/Login";
+import StudentLogin from "./src/Login/StudentLogin";
 
 import {
   Colors,
@@ -63,6 +65,8 @@ const App: () => Node = () => {
             <Stack.Screen name="NewsDetails" component={NewsDetails} />
             <Stack.Screen name="PersonalInfo" component={PersonalInfo} />
             <Stack.Screen name="MyEvaluation" component={MyEvaluation} />
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="StudentLogin" component={StudentLogin} />
           </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

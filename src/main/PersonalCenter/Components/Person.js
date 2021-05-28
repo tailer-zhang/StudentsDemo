@@ -7,7 +7,8 @@ const Person = ({navigation}) =>{
   const [personCenterList] = useState([
       {
         thumbIcon: require('../../../assets/icon/evaluationIcon.png'),
-        itemLabel: '我的测评'
+        itemLabel: '我的测评',
+        routerName: 'MyEvaluation'
       },
       {
         thumbIcon: require('../../../assets/icon/myQueryIcon.png'),
@@ -36,6 +37,12 @@ const Person = ({navigation}) =>{
       label: '关于我们'
     },
   ])
+
+  const hanldeJump = (routerName)=> {
+      if(routerName) {
+        navigation.navigate(routerName)
+      }
+  }
   return(
     <View style={styles.personWrapper}>
       <List style={{marginTop: 15}} renderHeader={<Text style={styles.personTitle}>个人中心</Text>}>
@@ -45,9 +52,9 @@ const Person = ({navigation}) =>{
               <Item
                 key={index} thumb={<Image style={styles.thumbIcon} source={item.thumbIcon} />} arrow="horizontal">
                 <TouchableOpacity
-                  activeOpacity={1}
+                  activeOpacity={.8}
                   onPress={()=>{
-
+                    hanldeJump(item.routerName)
                   }}
                   style={styles.labelWrapper}
                 >

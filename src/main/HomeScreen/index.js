@@ -70,7 +70,7 @@ class HomeScreen extends Component {
               }
             ]}>
               <TextInput style={styles.searchText}
-                         placeholderTextColor="rgb(81, 81, 81)"
+                         placeholderTextColor="#BCBCBC"
                          selectionColor="rgb(126, 199, 182)"
                 placeholder="搜索你感兴趣的内容" />
               <ImageBackground style={styles.searchIcon} source={require('../../assets/icon/searchIcon.png')} />

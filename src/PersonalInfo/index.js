@@ -58,10 +58,10 @@ const PersonalInfo = (props) =>{
             })
           }
           <TouchableOpacity
-            activeOpacity={1}
+            activeOpacity={.8}
             style={styles.logOut}
             onPress={()=>{
-
+              props.navigation.navigate('Login')
             }}
           >
             <Text style={{color: '#fff'}}>安全退出</Text>
